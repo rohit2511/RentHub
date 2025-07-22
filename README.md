@@ -1,9 +1,9 @@
 # RentHub
 
 # ==============================================================================
-# FILE: /rent-anything-platform/README.md
+# FILE: RentHub/README.md
 # ==============================================================================
-# Rent Anything Platform
+# Rent Anything Rent Anytime
 
 This is a full-stack e-commerce platform for renting various items, similar to Turo. It is built with a modern tech stack designed for scalability and maintainability.
 
