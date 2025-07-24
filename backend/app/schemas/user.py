@@ -2,11 +2,12 @@
 # FILE: /rent-anything-platform/backend/app/schemas/user.py
 # ==============================================================================
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 
 # Shared properties
 class UserBase(BaseModel):
     email: EmailStr
-    full_name: str | None = None
+    full_name: Optional[str] = None
 
 # Properties to receive via API on creation
 class UserCreate(UserBase):

@@ -2,7 +2,7 @@
 # FILE: /rent-anything-platform/backend/app/core/security.py
 # ==============================================================================
 from datetime import datetime, timedelta
-from typing import Any, Union
+from typing import Any, Optional
 
 from jose import jwt
 from passlib.context import CryptContext
@@ -12,7 +12,7 @@ from app.core.config import settings
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def create_access_token(
-    data: dict, expires_delta: timedelta | None = None
+    data: dict, expires_delta: Optional[timedelta] = None
 ) -> str:
     to_encode = data.copy()
     if expires_delta:

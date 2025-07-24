@@ -3,11 +3,12 @@
 # ==============================================================================
 from pydantic import BaseModel
 from .user import User
+from typing import Optional
 
 # Shared properties
 class ItemBase(BaseModel):
     name: str
-    description: str | None = None
+    description: Optional[str] = None
     price_per_day: float
 
 # Properties to receive on item creation

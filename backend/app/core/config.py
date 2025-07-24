@@ -1,7 +1,8 @@
 # ==============================================================================
 # FILE: /rent-anything-platform/backend/app/core/config.py
 # ==============================================================================
-from pydantic import AnyHttpUrl, BaseSettings
+from pydantic_settings import BaseSettings
+from pydantic import AnyHttpUrl
 from typing import List, Union
 
 class Settings(BaseSettings):
@@ -22,6 +23,6 @@ class Settings(BaseSettings):
 
     class Config:
         case_sensitive = True
-        env_file = ".env.dev"
+        env_file = "env.dev"
 
 settings = Settings()
