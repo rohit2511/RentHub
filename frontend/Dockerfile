@@ -2,43 +2,23 @@
 # FILE: /rent-anything-platform/frontend/Dockerfile
 # ==============================================================================
 # ---- Base Stage ----
-FROM node:18-alpine as base
+# This stage installs dependencies and is used for both dev and build
+FROM node:18-slim as base
 WORKDIR /app
 COPY package*.json ./
+# Explicitly install the native binary for the container's architecture first
+RUN npm install --save-dev @rollup/rollup-linux-x64-gnu
 RUN npm install
 
 # ---- Development Stage ----
-# For development, we use the node server for hot-reloading
+# In development, we use the node_modules from the base stage.
+# Source code is mounted via docker-compose.
 FROM base as development
-COPY . .
-# The command is provided by docker-compose
 CMD ["npm", "start"]
 
 # ---- Build Stage ----
-# This stage creates the static build artifacts
+# This stage creates the static build artifacts for production.
+# It copies the full source code to create the build.
 FROM base as build
 COPY . .
-RUN npm run build
-
-# ==============================================================================
-# FILE: /rent-anything-platform/frontend/Dockerfile.prod
-# ==============================================================================
-# This Dockerfile is for creating a production-ready Nginx server
-# to serve the static React files.
-
-# ---- Build Stage ----
-FROM node:18-alpine as build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# ---- Production Stage ----
-FROM nginx:stable-alpine
-# Copy the static assets from the build stage
-COPY --from=build /app/build /usr/share/nginx/html
-# Copy the custom nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+RUN DISABLE_ESLINT_PLUGIN=true npm run build

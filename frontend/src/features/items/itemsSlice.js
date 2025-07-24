@@ -9,11 +9,14 @@ const initialState = {
 };
 
 export const fetchItems = createAsyncThunk('items/fetchItems', async () => {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 500));
     const data = await itemsAPI.fetchItems();
     return data;
 });
 
 export const fetchItemById = createAsyncThunk('items/fetchItemById', async (id) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
     const data = await itemsAPI.fetchItemById(id);
     return data;
 });
@@ -37,6 +40,7 @@ export const itemsSlice = createSlice({
       })
       .addCase(fetchItemById.pending, (state) => {
         state.status = 'loading';
+        state.currentItem = null;
       })
       .addCase(fetchItemById.fulfilled, (state, action) => {
         state.status = 'succeeded';
