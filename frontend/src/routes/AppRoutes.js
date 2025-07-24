@@ -7,6 +7,7 @@ import Register from '../features/auth/Register';
 import ProtectedRoute from './ProtectedRoute';
 import SearchBar from '../components/common/SearchBar';
 import CategoryCard from '../components/common/CategoryCard';
+import HowItWorks from '../components/common/HowItWorks';
 
 
 const Home = () => {
@@ -30,8 +31,10 @@ const Home = () => {
                 </div>
             </div>
 
+            <HowItWorks />
+
             <div className="bg-white">
-                <div className="max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4">
+                <div className="max-w-7xl mx-auto py-24 sm:px-2 lg:px-4">
                     <div className="max-w-2xl mx-auto px-4 lg:max-w-none">
                         <div className="text-center">
                             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Browse by Category</h2>

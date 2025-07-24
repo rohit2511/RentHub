@@ -71,7 +71,7 @@ const ItemDetails = () => {
                             <div className="mt-8 border-t border-gray-200 pt-8">
                                 <h3 className="text-sm font-medium text-gray-900">Owner Information</h3>
                                 <div className="mt-4 flex items-center space-x-3">
-                                    <UserCircleIcon className="h-8 w-8 text-gray-400" />
+                                    <UserCircleIcon className="h-6 w-6 text-gray-400" />
                                     <div>
                                         <p className="text-sm font-medium text-gray-700">{item.owner.full_name}</p>
                                         <p className="text-sm text-gray-500">{item.owner.email}</p>

@@ -22,7 +22,7 @@ const ItemCard = ({ item }) => {
                     <span className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">{item.category || 'General'}</span>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-2 truncate group-hover:text-indigo-600 transition-colors duration-300">{item.name}</h3>
-                <p className="text-gray-600 text-sm mb-4 h-10 overflow-hidden">{item.description}</p>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">{item.description}</p>
                 <div className="flex items-center space-x-2 text-gray-500 text-sm mb-4">
                     <MapPinIcon className="h-5 w-5" />
                     <span>{item.location || 'Not specified'}</span>

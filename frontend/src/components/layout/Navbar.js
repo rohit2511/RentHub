@@ -17,7 +17,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
-                            <CameraIcon className="h-8 w-8 text-indigo-600" />
+                            <CameraIcon className="h-6 w-6 text-indigo-600" />
                             <span className="text-2xl font-bold text-gray-900">RentAnything</span>
                         </Link>
                         <div className="hidden md:block">

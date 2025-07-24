@@ -6,7 +6,7 @@ const ImageGallery = ({ images, itemName }) => {
 
     return (
         <div>
-            <div className="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+            <div className="w-full max-h-[500px] mx-auto aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
                 <img 
                     src={mainImage || placeholderImage} 
                     alt={itemName} 
