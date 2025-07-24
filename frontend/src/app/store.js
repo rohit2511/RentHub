@@ -11,4 +11,4 @@ export const store = configureStore({
   },
 });
 
-export default Button;
+export default store;
